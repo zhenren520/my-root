@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>my-parent</artifactId>
+		<groupId>com.myproject</groupId>
+		<version>${myproject.version}</version>
+		<relativePath>../my-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>my-web</artifactId>
+	<packaging>war</packaging>
+
+	<name>my-web</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.myproject</groupId>
+			<artifactId>my-service</artifactId>
+			<version>${myproject.version}</version>
+		</dependency>
+	</dependencies>
+
+
+</project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.zhaoheng.dao.CountryDao">
+	<!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称 -->
+	<!--获得所有图书 -->
+
+	<resultMap type="Country" id="countryList">
+		<result column="code" property="code" />
+		<result column="name" property="name" />
+		<result column="continent" property="continent" />
+		<result column="surfaceArea" property="surfaceArea" />
+		<result column="indepYear" property="indepYear" />
+		<result column="population" property="population" />
+		<result column="lifeExpectancy" property="lifeExpectancy" />
+		<result column="gNP" property="gNP" />
+		<result column="gNPOld" property="GNPOld" />
+		<result column="localName" property="localName" />
+	</resultMap>
+
+	<select id="getAllCountry" resultMap="countryList">
+		select * from country
+	</select>
+	
+	 <!-- 根据ID查询-->
+    <select id="findById" parameterType="String" resultType="com.zhaoheng.entity.Country">
+        select *
+        from country where code=#{countryid};
+    </select>
+    
+    <!-- 插入-->
+    <insert id="insertCountry" parameterType="Country">
+        insert into country
+        (code,name,continent,region,surfaceArea,indepYear)values(#{code},#{name},#{continent},#{region},#{surfaceArea},#{indepYear});
+    </insert>
+
+ <!-- 删除-->
+    <delete id="deleteCountryById" parameterType="String">
+        delete from country
+        where code=#{countryid}
+    </delete>
+    <!-- 更新-->
+    <update id="updateCountry" parameterType="Country">
+        update  Country set
+        name=#{name},continent=#{continent},region=#{region} where
+        code=#{code} 
+    </update>
+</mapper>
