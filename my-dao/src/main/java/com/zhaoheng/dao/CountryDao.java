@@ -5,7 +5,7 @@ import java.util.List;
 import com.zhaoheng.entity.Country;
 
 /**
- * dao
+ * 这时一个dao
  * 
  * @author Administrator
  *
