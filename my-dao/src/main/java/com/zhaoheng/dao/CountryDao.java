@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.zhaoheng.entity.Country;
 
+/**
+ * dao
+ * 
+ * @author Administrator
+ *
+ */
 public interface CountryDao {
 
 	public List<Country> getAllCountry();
