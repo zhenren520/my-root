@@ -17,11 +17,11 @@
 <body>
 
 	<form action="<%=basePath %>countryController/updateCountry.do" method="post">
-		<input type="text" name="code" value="${country.code}"><br>
-		<input type="text" name="name" value="${country.name}"><br>
-		<input type="text" name="region" value="${country.region}"><br>
-		<input type="text" name="surfaceArea" value="${country.surfaceArea}"><br>
-		<input type="text" name="indepYear" value="${country.indepYear}"><br>
+		<input type="text" name="country.code" value="${country.code}"><br>
+		<input type="text" name="country.name" value="${country.name}"><br>
+		<input type="text" name="country.region" value="${country.region}"><br>
+		<input type="text" name="country.surfaceArea" value="${country.surfaceArea}"><br>
+		<input type="text" name="country.indepYear" value="${country.indepYear}"><br>
 		<input type="submit" value=" 提 交  ">
 	</form>
 

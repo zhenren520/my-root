@@ -11,7 +11,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
-		<spring-version>3.2.0.RELEASE</spring-version>
+		<spring-version>4.3.0.RELEASE</spring-version>
 		<mybatis.version>3.1.1</mybatis.version>
 		<myproject.version>1.0</myproject.version>
 
@@ -21,6 +21,19 @@
 	</properties>
 
 	<dependencies>
+		<!--Struts整合Spring的jar包 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.4.1</version>
+		</dependency>
+
+		<!--Struts2注解支持jar包 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>2.3.4.1</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -44,16 +57,37 @@
 			<version>1.8.9</version>
 		</dependency>
 		<!-- Spring Web -->
+		<!-- 
+		https://mvnrepository.com/artifact/org.springframework/spring-core
+		自动依赖下载老版本没有java.lang.NoClassDefFoundError: org/springframework/core/env/EnvironmentCapable
+		所以强制下一个新版本
+		但是还是报其他类没有找到，强行的都换成4.3.0
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring-version}</version>
+			<artifactId>spring-core</artifactId>
+			<version>4.1.6.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
+-->
+		 <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
 		<!--mybatis-spring适配器 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>

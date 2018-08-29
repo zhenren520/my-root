@@ -17,11 +17,11 @@
 <body>
 
 	<form action="<%=basePath %>countryController/insertCountry.do" method="post">
-		<input type="text" name="code"><br>
-		<input type="text" name="name"><br>
-		<input type="text" name="region"><br>
-		<input type="text" name="surfaceArea"><br>
-		<input type="text" name="indepYear"><br>
+		<input type="text" name="country.code"><br>
+		<input type="text" name="country.name"><br>
+		<input type="text" name="country.region"><br>
+		<input type="text" name="country.surfaceArea"><br>
+		<input type="text" name="country.indepYear"><br>
 		<input type="submit" value=" 提 交  ">
 	</form>
 

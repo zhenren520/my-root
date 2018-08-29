@@ -3,16 +3,26 @@ package com.zhaoheng.action;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.zhaoheng.entity.Country;
 import com.zhaoheng.service.CountryService;
 
-@Controller
-@RequestMapping("countryController")
-public class CountryController {
+@SuppressWarnings("unchecked")
+public class CountryController extends ActionSupport {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private List<Country> list;
+
+	private Country country;
+	
+	private String countryid;
+
 
 	public CountryController() {
 		System.out.println("已经启动~~~~~~~~~~~~~~");
@@ -23,58 +33,76 @@ public class CountryController {
 
 	/**
 	 * 欢迎页面
+	 * 
 	 * @return
 	 */
-	@RequestMapping("indexPage")
-	public String indexPage(){
+	public String indexPage() {
 		return "index";
 	}
-	
-	@RequestMapping("getAllCountry")
-	public String getAllCountry(ModelMap model) {
-		List<Country> list = countryService.getAllCountry();
-		model.addAttribute("list", list);
+
+	public String getAllCountry() {
+		list = countryService.getAllCountry();
 		return "allCountry";
 	}
 
-	@RequestMapping("insertCountry")
-	public String insertCountry(Country country) {
+	public String insertCountry() {
 		countryService.insertCountry(country);
-		return "redirect:getAllCountry.do";
+		// return "redirect:getAllCountry.do";
+		return "success";
 	}
 
 	// 用于跳转到jsp
-	@RequestMapping("addCountryPage")
 	public String addCountryPage() {
 		return "addCountry";
 	}
 
 	// 用于跳转到jsp
-	@RequestMapping("updateCountryPage")
 	public String updateCountryPage() {
 		return "updateCountry";
 	}
 
-	@RequestMapping("deleteCountryById")
-	public String deleteCountryById(String countryid) {
-		String []countryids = countryid.split(",");
+	public String deleteCountryById() {
+		String[] countryids = countryid.split(",");
 		for (int i = 0; i < countryids.length; i++) {
 			String id = countryids[i];
 			countryService.deleteCountryById(id);
 		}
-		return "redirect:getAllCountry.do";
+		// return "redirect:getAllCountry.do";
+		return "success";
 	}
 
-	@RequestMapping("findById")
-	public String findById(ModelMap model, String countryid) {
-		Country country = countryService.findById(countryid);
-		model.addAttribute("country", country);
-		return "updateCountry";
+	public String findById() {
+		country = countryService.findById(countryid);
+		return "success";
+	}
+
+	public String updateCountry() {
+		countryService.updateCountry(country);
+		//return "redirect:getAllCountry.do";
+		return "success";
+	}
+
+	public List<Country> getList() {
+		return list;
+	}
+
+	public void setList(List<Country> list) {
+		this.list = list;
 	}
 	
-	@RequestMapping("updateCountry")
-	public String updateCountry(Country country) {
-		countryService.updateCountry(country);
-		return "redirect:getAllCountry.do";
+	public String getCountryid() {
+		return countryid;
+	}
+
+	public void setCountryid(String countryid) {
+		this.countryid = countryid;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 }
