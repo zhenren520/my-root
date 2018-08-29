@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<include file="struts-default.xml" />
+	<package name="country" extends="struts-default">
+		<action name="indexPage" class="com.zhaoheng.action.CountryController"
+			method="indexPage">
+			<result name="index">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="addCountryPage" class="com.zhaoheng.action.CountryController"
+			method="addCountryPage">
+			<result name="addCountry">/WEB-INF/addCountry.jsp</result>
+		</action>
+		<action name="updateCountryPage" class="com.zhaoheng.action.CountryController"
+			method="updateCountryPage">
+			<result name="updateCountry">/WEB-INF/updateCountry.jsp</result>
+		</action>
+		<action name="getAllCountry" class="com.zhaoheng.action.CountryController"
+			method="allCountry">
+			<result name="index">/WEB-INF/allCountry.jsp</result>
+		</action>
+		<action name="insertCountry" class="com.zhaoheng.action.CountryController"
+			method="insertCountry">
+			<result name="success" type="redirectAction">/getAllCountry.do</result>
+		</action>
+		<action name="deleteCountryById" class="com.zhaoheng.action.CountryController"
+			method="deleteCountryById">
+			<result name="success" type="redirectAction">/getAllCountry.do</result>
+		</action>
+		<action name="findById" class="com.zhaoheng.action.CountryController"
+			method="findById">
+			<result name="success">/WEB-INF/updateCountry.jsp</result>
+		</action>
+		<action name="updateCountry" class="com.zhaoheng.action.CountryController"
+			method="updateCountry">
+			<result name="success" type="redirectAction">/getAllCountry.do</result>
+		</action>
+	</package>
+</struts>
